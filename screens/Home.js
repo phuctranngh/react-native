@@ -41,7 +41,7 @@ const Home = () => {
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.bottomButtons}>
-          <Text >Scan QR</Text>
+          <Text >Bookmark</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.bottomButtons}>

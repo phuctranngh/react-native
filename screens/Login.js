@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   },
  
   textInput: {
-    backgroundColor: COLORS.gray,
+    backgroundColor: COLORS.white,
     borderRadius: SIZES.font,
     marginTop: SIZES.font,
     paddingHorizontal: SIZES.font,
@@ -82,5 +82,6 @@ const styles = StyleSheet.create({
  
   loginText: {
     color: COLORS.white,
+    fontFamily: 'InterBold'
   },
 });
