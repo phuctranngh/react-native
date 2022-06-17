@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, SafeAreaView, FlatList } from "react-native";
+import { View, FlatList, SafeAreaView, StyleSheet, Text, TouchableOpacity } from "react-native";
 
 import { NFTCard, HomeHeader, FocusedStatusBar } from "../components";
 import { COLORS, NFTData } from "../constants";
@@ -26,8 +26,7 @@ const Home = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <FocusedStatusBar backgroundColor={COLORS.primary} />
-      <View style={{ flex: 1 }}>
-        <View style={{ zIndex: 0 }}>
+      <View style={{ flex: 0.925 }}>
           <FlatList
             data={nftData}
             renderItem={({ item }) => <NFTCard data={item} />}
@@ -35,25 +34,42 @@ const Home = () => {
             showsVerticalScrollIndicator={false}
             ListHeaderComponent={<HomeHeader onSearch={handleSearch} />}
           />
-        </View>
+      </View>
+      <View style={styles.footer}>
+        <TouchableOpacity style={styles.bottomButtons}>
+          <Text >Home</Text>
+        </TouchableOpacity>
 
-        <View
-          style={{
-            position: "absolute",
-            top: 0,
-            bottom: 0,
-            right: 0,
-            left: 0,
-            zIndex: -1,
-          }}
-        >
-          <View
-            style={{ height: 300, backgroundColor: COLORS.primary }} />
-          <View style={{ flex: 1, backgroundColor: COLORS.white }} />
-        </View>
+        <TouchableOpacity style={styles.bottomButtons}>
+          <Text >Scan QR</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.bottomButtons}>
+          <Text >Notification</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.bottomButtons}>
+          <Text >Account</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
 };
 
 export default Home;
+
+const styles = StyleSheet.create({
+  footer: {
+    flex: 0.075,
+    left: 0,
+    right: 0,
+    backgroundColor: 'green',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  bottomButtons: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+  },
+});
