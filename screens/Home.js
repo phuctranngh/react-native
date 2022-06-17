@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { View, FlatList, SafeAreaView, StyleSheet, Text, TouchableOpacity } from "react-native";
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { NFTCard, HomeHeader, FocusedStatusBar } from "../components";
 import { COLORS, NFTData } from "../constants";
@@ -37,19 +39,19 @@ const Home = () => {
       </View>
       <View style={styles.footer}>
         <TouchableOpacity style={styles.bottomButtons}>
-          <Text >Home</Text>
+          <Icon name="home-outline" color={COLORS.primary} size={30} />
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.bottomButtons}>
-          <Text >Bookmark</Text>
+        <Icon name="star-outline" color={COLORS.primary} size={30} />
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.bottomButtons}>
-          <Text >Notification</Text>
+        <MaterialIcons name="notifications-none" color={COLORS.primary} size={30} />
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.bottomButtons}>
-          <Text >Account</Text>
+        <Icon name="account-outline" color={COLORS.primary} size={30} />
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -63,7 +65,7 @@ const styles = StyleSheet.create({
     flex: 0.075,
     left: 0,
     right: 0,
-    backgroundColor: 'green',
+    backgroundColor: COLORS.white,
     flexDirection: 'row',
     alignItems: 'center',
   },
