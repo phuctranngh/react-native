@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, FlatList, SafeAreaView, StyleSheet, Text, TouchableOpacity } from "react-native";
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { Icon } from '@rneui/themed';
+import tw from 'twrnc';
 
 import { NFTCard, HomeHeader, FocusedStatusBar } from "../components";
 import { COLORS, NFTData } from "../constants";
@@ -26,9 +26,9 @@ const Home = () => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={tw`flex-1`}>
       <FocusedStatusBar backgroundColor={COLORS.primary} />
-      <View style={{ flex: 0.925 }}>
+      <View style={tw`flex-1`}>
           <FlatList
             data={nftData}
             renderItem={({ item }) => <NFTCard data={item} />}
@@ -37,21 +37,21 @@ const Home = () => {
             ListHeaderComponent={<HomeHeader onSearch={handleSearch} />}
           />
       </View>
-      <View style={styles.footer}>
-        <TouchableOpacity style={styles.bottomButtons}>
-          <Icon name="home-outline" color={COLORS.primary} size={30} />
+      <View style={tw`flex flex-row justify-between inset-x-0 bottom-0 h-12 px-10 py-2`}>
+        <TouchableOpacity>
+          <Icon name="home-outline" type='material-community' color={COLORS.primary} size={30} />
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.bottomButtons}>
-        <Icon name="star-outline" color={COLORS.primary} size={30} />
+        <TouchableOpacity>
+          <Icon name="star-outline" type='material-community' color={COLORS.primary} size={30} />
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.bottomButtons}>
-        <MaterialIcons name="notifications-none" color={COLORS.primary} size={30} />
+        <TouchableOpacity>
+          <Icon name="notifications-none" type='material' color={COLORS.primary} size={30} />
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.bottomButtons}>
-        <Icon name="account-outline" color={COLORS.primary} size={30} />
+        <TouchableOpacity>
+          <Icon name="account-outline" type='material-community' color={COLORS.primary} size={30} />
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -60,18 +60,4 @@ const Home = () => {
 
 export default Home;
 
-const styles = StyleSheet.create({
-  footer: {
-    flex: 0.075,
-    left: 0,
-    right: 0,
-    backgroundColor: COLORS.white,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  bottomButtons: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-  },
-});
+const styles = StyleSheet.create({});
