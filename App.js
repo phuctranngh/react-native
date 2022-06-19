@@ -4,7 +4,7 @@ import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useFonts } from "expo-font";
 
-import Details from "./screens/Details";
+import Exam from "./screens/Exam";
 import Home from "./screens/Home";
 import Login from "./screens/Login";
 
@@ -38,7 +38,7 @@ const App = () => {
           }}
           initialRouteName="Login"
         >
-          <Stack.Screen name="Details" component={Details} />
+          <Stack.Screen name="Exam" component={Exam} />
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Login" component={Login} />
         </Stack.Navigator>

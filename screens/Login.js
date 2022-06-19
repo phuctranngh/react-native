@@ -10,7 +10,7 @@ const Login = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <FocusedStatusBar backgroundColor={COLORS.primary} />
+      <FocusedStatusBar backgroundColor={COLORS.background} />
       <Image
         source={assets.logo}
         resizeMode="contain"
@@ -19,13 +19,11 @@ const Login = () => {
       <TextInput
         style={styles.textInput}
         placeholder="Email."
-        placeholderTextColor="#003f5c"
         onChangeText={() => {}}
       />
       <TextInput
         style={styles.textInput}
         placeholder="Password."
-        placeholderTextColor="#003f5c"
         secureTextEntry={true}
         onChangeText={() => {}}
       />
@@ -45,7 +43,7 @@ export default Login;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.primary,
+    backgroundColor: COLORS.background,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -72,7 +70,7 @@ const styles = StyleSheet.create({
  
   loginBtn: {
     alignItems: "center",
-    backgroundColor: COLORS.secondary,
+    backgroundColor: COLORS.orange,
     borderRadius: SIZES.font,
     height: 50,
     justifyContent: "center",

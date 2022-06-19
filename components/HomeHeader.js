@@ -1,5 +1,7 @@
 import React from "react";
 import { View, Text, Image, TextInput } from "react-native";
+import { Icon } from '@rneui/themed';
+import tw from 'twrnc';
 
 import { COLORS, FONTS, SIZES, assets } from "../constants";
 
@@ -7,7 +9,7 @@ const HomeHeader = ({ onSearch }) => {
   return (
     <View
       style={{
-        backgroundColor: COLORS.primary,
+        backgroundColor: COLORS.background,
         padding: SIZES.font,
       }}
     >
@@ -72,18 +74,14 @@ const HomeHeader = ({ onSearch }) => {
           style={{
             width: "100%",
             borderRadius: SIZES.font,
-            backgroundColor: COLORS.gray,
+            backgroundColor: COLORS.white,
             flexDirection: "row",
             alignItems: "center",
             paddingHorizontal: SIZES.font,
             paddingVertical: SIZES.small - 2,
           }}
         >
-          <Image
-            source={assets.search}
-            resizeMode="contain"
-            style={{ width: 20, height: 20, marginRight: SIZES.base }}
-          />
+          <Icon name="search-outline" type='ionicon' size={30} style={tw`mr-2`} />
           <TextInput
             placeholder="Search NFTs"
             style={{ flex: 1 }}
