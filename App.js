@@ -4,8 +4,8 @@ import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useFonts } from "expo-font";
 
+import BottomTabNavigator from "./navigation/TabNavigator";
 import Exam from "./screens/Exam";
-import Home from "./screens/Home";
 import Login from "./screens/Login";
 
 const theme = {
@@ -32,16 +32,16 @@ const App = () => {
   return (
     <NavigationContainer theme={theme}>
       <SafeAreaProvider>
-        <Stack.Navigator
-          screenOptions={{
-            headerShown: false,
-          }}
-          initialRouteName="Login"
-        >
-          <Stack.Screen name="Exam" component={Exam} />
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="Login" component={Login} />
-        </Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+        initialRouteName="Login"
+      >
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Home" component={BottomTabNavigator} />
+        <Stack.Screen name="Exam" component={Exam} />
+      </Stack.Navigator>
       </SafeAreaProvider>
     </NavigationContainer>
     
