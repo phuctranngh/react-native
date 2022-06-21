@@ -30,8 +30,8 @@ const App = () => {
   if (!loaded) return null;
 
   return (
-    <SafeAreaProvider>
-      <NavigationContainer theme={theme}>
+    <NavigationContainer theme={theme}>
+      <SafeAreaProvider>
         <Stack.Navigator
           screenOptions={{
             headerShown: false,
@@ -42,8 +42,8 @@ const App = () => {
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Login" component={Login} />
         </Stack.Navigator>
-      </NavigationContainer>
-    </SafeAreaProvider>
+      </SafeAreaProvider>
+    </NavigationContainer>
     
   );
 };
