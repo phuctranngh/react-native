@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView, Image, StyleSheet, Text, TextInput, TouchableOpacity } from "react-native";
+import { LinearGradient } from 'expo-linear-gradient';
 
 import { FocusedStatusBar } from "../components";
 import { assets, COLORS, SIZES } from "../constants";
@@ -10,7 +11,19 @@ const Login = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <FocusedStatusBar backgroundColor={COLORS.background} />
+      <FocusedStatusBar backgroundColor={COLORS.primary} />
+      <LinearGradient
+        colors={[COLORS.primary, COLORS.yellow]}
+        start={{ x: 0.4, y: 0.3 }}
+        end={{ x: 0.6, y: 0.9 }}
+        style={{
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          top: 0,
+          bottom: 0
+        }}
+      />
       <Image
         source={assets.logo}
         resizeMode="contain"
@@ -19,11 +32,13 @@ const Login = () => {
       <TextInput
         style={styles.textInput}
         placeholder="Email."
+        placeholderTextColor={COLORS.gray}
         onChangeText={() => {}}
       />
       <TextInput
         style={styles.textInput}
         placeholder="Password."
+        placeholderTextColor={COLORS.gray}
         secureTextEntry={true}
         onChangeText={() => {}}
       />
@@ -70,7 +85,7 @@ const styles = StyleSheet.create({
  
   loginBtn: {
     alignItems: "center",
-    backgroundColor: COLORS.orange,
+    backgroundColor: COLORS.strongBlue,
     borderRadius: SIZES.font,
     height: 50,
     justifyContent: "center",

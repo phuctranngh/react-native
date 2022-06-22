@@ -14,8 +14,8 @@ const Home = () => {
 
   return (
     <SafeAreaView style={tw`flex-1`}>
-      <FocusedStatusBar backgroundColor='#08eef7' />
-        <HomeHeader onSearch={handleSearch} />
+      <FocusedStatusBar backgroundColor={COLORS.primary} />
+      <HomeHeader onSearch={handleSearch} />
         
       <View style={[tw`flex-1`, {backgroundColor: COLORS.white}]}>
         <ScrollView contentContainerStyle={{
@@ -23,7 +23,7 @@ const Home = () => {
             flexWrap: 'wrap',
             padding: 4
         }}>
-          <TouchableOpacity style={[tw`p-2 pb-8 pt-4 bg-blue-200 m-2 mb-3 w-40 items-center`, { borderRadius: SIZES.font, ...SHADOWS.dark, }]}
+          <TouchableOpacity style={styles.categoryButton}
           >
             <View>
               <Image
@@ -31,10 +31,10 @@ const Home = () => {
                 resizeMode="contain"
                 style={{ width: 120, height: 120 }}
                 />
-              <Text style={[tw`mt-2 text-base text-center`, {fontFamily: FONTS.semiBold}]}>Bài học</Text>
+              <Text style={styles.categoryText}>Bài học</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={[tw`p-2 pb-8 pt-4 bg-blue-200 m-2 mb-3 w-40 items-center`, { borderRadius: SIZES.font, ...SHADOWS.dark, }]} 
+          <TouchableOpacity style={styles.categoryButton} 
             onPress={() => {navigation.navigate("Exam")}}
           >
             <View>
@@ -43,10 +43,10 @@ const Home = () => {
                 resizeMode="contain"
                 style={{ width: 120, height: 120 }}
                 />
-              <Text style={[tw`mt-2 text-base text-center`, {fontFamily: FONTS.semiBold}]}>Làm bài thi</Text>
+              <Text style={styles.categoryText}>Làm bài thi</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={[tw`p-2 pb-8 pt-4 bg-blue-200 m-2 mb-3 w-40 items-center`, { borderRadius: SIZES.font, ...SHADOWS.dark, }]}
+          <TouchableOpacity style={styles.categoryButton}
           >
             <View>
               <Image
@@ -54,7 +54,7 @@ const Home = () => {
                 resizeMode="contain"
                 style={{ width: 120, height: 120 }}
                 />
-              <Text style={[tw`mt-2 text-base text-center`, {fontFamily: FONTS.semiBold}]}>Chứng chỉ</Text>
+              <Text style={styles.categoryText}>Chứng chỉ</Text>
             </View>
           </TouchableOpacity>
         </ScrollView>
@@ -65,4 +65,22 @@ const Home = () => {
 
 export default Home;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  categoryButton: { 
+      backgroundColor: COLORS.transBlue, 
+      borderRadius: SIZES.font, 
+      margin: 12,
+      // marginBottom: 12,
+      padding: 14,
+      width: 152,
+      height: 200,
+      ...SHADOWS.dark, 
+  },
+  categoryText: {
+    color: COLORS.strongBlue,
+    fontFamily: FONTS.semiBold,
+    fontSize: SIZES.large, 
+    marginTop: 20, 
+    textAlign: "center"
+  }
+});

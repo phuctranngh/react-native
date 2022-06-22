@@ -152,7 +152,7 @@ const Exam = () => {
               <TouchableOpacity
               onPress={handleNext}
               style={{
-                  marginTop: 20, width: '100%', backgroundColor: COLORS.accent, padding: 20, borderRadius: 5
+                  marginTop: 20, width: '100%', backgroundColor: COLORS.strongBlue, padding: 20, borderRadius: 5
               }}>
                   <Text style={{fontSize: 20, color: COLORS.white, textAlign: 'center'}}>Next</Text>
               </TouchableOpacity>
@@ -179,7 +179,7 @@ const Exam = () => {
               <Animated.View style={[{
                   height: 20,
                   borderRadius: 20,
-                  backgroundColor: COLORS.accent
+                  backgroundColor: COLORS.strongBlue
               },{
                   width: progressAnim
               }]}>
@@ -254,7 +254,7 @@ const Exam = () => {
                         <TouchableOpacity
                         onPress={restartQuiz}
                         style={{
-                            backgroundColor: COLORS.accent,
+                            backgroundColor: COLORS.strongBlue,
                             padding: 20, width: '100%', borderRadius: 20
                         }}>
                             <Text style={{

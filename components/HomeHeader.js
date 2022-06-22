@@ -15,7 +15,7 @@ const HomeHeader = ({ onSearch }) => {
       }}
     >
       <LinearGradient
-        colors={['#08eef7', '#fdf22d']}
+        colors={[COLORS.primary, COLORS.yellow]}
         start={{ x: 0.4, y: 0.3 }}
         end={{ x: 0.6, y: 0.9 }}
         style={{
@@ -23,7 +23,7 @@ const HomeHeader = ({ onSearch }) => {
           left: 0,
           right: 0,
           top: 0,
-          height: 300
+          height: 300,
         }}
       />
       <View
@@ -67,7 +67,7 @@ const HomeHeader = ({ onSearch }) => {
             color: COLORS.white,
           }}
         >
-          Hello Victoria 👋
+          Xin chào Victoria 👋
         </Text>
 
         <Text
@@ -78,7 +78,7 @@ const HomeHeader = ({ onSearch }) => {
             marginTop: SIZES.base / 2,
           }}
         >
-          Let’s find masterpiece Art
+          Cùng luyện tập kỹ năng nhé
         </Text>
       </View>
 
@@ -97,6 +97,7 @@ const HomeHeader = ({ onSearch }) => {
           <Icon name="search-outline" type='ionicon' size={30} style={tw`mr-2`} />
           <TextInput
             placeholder="Search NFTs"
+            placeholderTextColor={COLORS.gray}
             style={{ flex: 1 }}
             onChangeText={onSearch}
           />
