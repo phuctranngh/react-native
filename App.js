@@ -34,6 +34,7 @@ const App = () => {
       <SafeAreaProvider>
       <Stack.Navigator
         screenOptions={{
+          animationTypeForReplace: 'pop',
           headerShown: false,
         }}
         initialRouteName="Login"

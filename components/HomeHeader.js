@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, Image, TextInput } from "react-native";
+import { LinearGradient } from 'expo-linear-gradient';
 import { Icon } from '@rneui/themed';
 import tw from 'twrnc';
 
@@ -13,6 +14,18 @@ const HomeHeader = ({ onSearch }) => {
         padding: SIZES.font,
       }}
     >
+      <LinearGradient
+        colors={['#08eef7', '#fdf22d']}
+        start={{ x: 0.4, y: 0.3 }}
+        end={{ x: 0.6, y: 0.9 }}
+        style={{
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          top: 0,
+          height: 300
+        }}
+      />
       <View
         style={{
           flexDirection: "row",

@@ -14,15 +14,16 @@ const Home = () => {
 
   return (
     <SafeAreaView style={tw`flex-1`}>
-      <FocusedStatusBar backgroundColor={COLORS.background} />
-      <View style={[tw`flex-1`, {backgroundColor: COLORS.white}]}>
+      <FocusedStatusBar backgroundColor='#08eef7' />
         <HomeHeader onSearch={handleSearch} />
+        
+      <View style={[tw`flex-1`, {backgroundColor: COLORS.white}]}>
         <ScrollView contentContainerStyle={{
             flexDirection: 'row',
             flexWrap: 'wrap',
             padding: 4
-          }}>
-          <TouchableOpacity style={[tw`p-2 pb-8 pt-4 bg-gray-200 m-2 mb-3 w-40 items-center`, { borderRadius: SIZES.font, ...SHADOWS.dark, }]}
+        }}>
+          <TouchableOpacity style={[tw`p-2 pb-8 pt-4 bg-blue-200 m-2 mb-3 w-40 items-center`, { borderRadius: SIZES.font, ...SHADOWS.dark, }]}
           >
             <View>
               <Image
@@ -33,7 +34,7 @@ const Home = () => {
               <Text style={[tw`mt-2 text-base text-center`, {fontFamily: FONTS.semiBold}]}>Bài học</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={[tw`p-2 pb-8 pt-4 bg-gray-200 m-2 mb-3 w-40 items-center`, { borderRadius: SIZES.font, ...SHADOWS.dark, }]} 
+          <TouchableOpacity style={[tw`p-2 pb-8 pt-4 bg-blue-200 m-2 mb-3 w-40 items-center`, { borderRadius: SIZES.font, ...SHADOWS.dark, }]} 
             onPress={() => {navigation.navigate("Exam")}}
           >
             <View>
@@ -45,7 +46,7 @@ const Home = () => {
               <Text style={[tw`mt-2 text-base text-center`, {fontFamily: FONTS.semiBold}]}>Làm bài thi</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={[tw`p-2 pb-8 pt-4 bg-gray-200 m-2 mb-3 w-40 items-center`, { borderRadius: SIZES.font, ...SHADOWS.dark, }]}
+          <TouchableOpacity style={[tw`p-2 pb-8 pt-4 bg-blue-200 m-2 mb-3 w-40 items-center`, { borderRadius: SIZES.font, ...SHADOWS.dark, }]}
           >
             <View>
               <Image
