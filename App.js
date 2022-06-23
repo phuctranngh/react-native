@@ -1,5 +1,8 @@
 import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from "@react-navigation/stack";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useFonts } from "expo-font";
@@ -32,20 +35,19 @@ const App = () => {
   return (
     <NavigationContainer theme={theme}>
       <SafeAreaProvider>
-      <Stack.Navigator
-        screenOptions={{
-          animationTypeForReplace: 'pop',
-          headerShown: false,
-        }}
-        initialRouteName="Login"
-      >
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Home" component={BottomTabNavigator} />
-        <Stack.Screen name="Exam" component={Exam} />
-      </Stack.Navigator>
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false,
+            ...TransitionPresets.SlideFromRightIOS,
+          }}
+          initialRouteName="Login"
+        >
+          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Home" component={BottomTabNavigator} />
+          <Stack.Screen name="Exam" component={Exam} />
+        </Stack.Navigator>
       </SafeAreaProvider>
     </NavigationContainer>
-    
   );
 };
 

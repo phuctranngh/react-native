@@ -1,21 +1,24 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
+
+import { FocusedStatusBar } from "../components";
+import { assets, COLORS, FONTS, SHADOWS, SIZES } from "../constants";
 
 const Profile = () => {
-    return (
-        <View style={styles.center}>
-          <Text>This is the profile screen</Text>
-        </View>
-    );
+	const handleSearch = (value) => {
+  };
+
+	return (
+		<SafeAreaView style={styles.center}>
+			<FocusedStatusBar backgroundColor={COLORS.primary} />
+		</SafeAreaView>
+	);
 };
 
 const styles = StyleSheet.create({
-    center: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    textAlign: "center",
-    },
+	center: {
+		flex: 1,
+	},
 });
 
 export default  Profile;
