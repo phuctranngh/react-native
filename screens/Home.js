@@ -22,7 +22,9 @@ const Home = () => {
             flexDirection: 'row',
             flexWrap: 'wrap',
             padding: 4
-        }}>
+          }}
+          showsVerticalScrollIndicator={false}
+        >
           <TouchableOpacity style={styles.categoryButton}
           >
             <View>

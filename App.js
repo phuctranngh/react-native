@@ -9,7 +9,8 @@ import { useFonts } from "expo-font";
 
 import BottomTabNavigator from "./navigation/TabNavigator";
 import Exam from "./screens/Exam";
-import Login from "./screens/Login";
+// import Login from "./screens/Login";
+import RootNavigator from './navigation/RootNavigator';
 
 const theme = {
   ...DefaultTheme,
@@ -35,7 +36,8 @@ const App = () => {
   return (
     <NavigationContainer theme={theme}>
       <SafeAreaProvider>
-        <Stack.Navigator
+        <RootNavigator />
+        {/* <Stack.Navigator
           screenOptions={{
             headerShown: false,
             ...TransitionPresets.SlideFromRightIOS,
@@ -45,7 +47,7 @@ const App = () => {
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Home" component={BottomTabNavigator} />
           <Stack.Screen name="Exam" component={Exam} />
-        </Stack.Navigator>
+        </Stack.Navigator> */}
       </SafeAreaProvider>
     </NavigationContainer>
   );

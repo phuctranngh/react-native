@@ -6,7 +6,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { FocusedStatusBar } from "../components";
 import { assets, COLORS, SIZES } from "../constants";
 
-const Login = () => {
+const SignIn = () => {
   const navigation = useNavigation();
 
   return (
@@ -53,7 +53,7 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignIn;
 
 const styles = StyleSheet.create({
   container: {
