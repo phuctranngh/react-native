@@ -13,11 +13,12 @@ export const COLORS = {
   white: "#FFF",
   
   lightBlue: '#7af9f7',
-  strongBlue: '#3498db',
+  mediumBlue: '#3498db',
+  strongBlue: '#05375a',
   transBlue: '#c6faf9',
   
   success: '#00C851',
-  error: '#ff4444',
+  error: '#FF0000',
 
   background: "#252C4A"
 };
@@ -28,7 +29,7 @@ export const SIZES = {
   font: 14,
   medium: 16,
   large: 18,
-  extraLarge: 24,
+  extraLarge: 30,
   
   width,
   height
