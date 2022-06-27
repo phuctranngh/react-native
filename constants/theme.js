@@ -1,4 +1,4 @@
-import { Dimensions } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 const {width, height} = Dimensions.get('window');
 
 export const COLORS = {
@@ -78,3 +78,9 @@ export const SHADOWS = {
     elevation: 14,
   },
 };
+
+export const STYLES = StyleSheet.create({
+  CustomFont: {
+    fontFamily: FONTS.regular
+  },
+});

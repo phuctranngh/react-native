@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { Alert, Dimensions, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import * as Animatable from 'react-native-animatable';
+import { useDispatch } from 'react-redux';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Icon } from '@rneui/themed';
 
-import { assets, COLORS, SIZES } from "../constants";
+import { assets, COLORS, SIZES, STYLES } from "../constants";
+import { login } from "../redux/slices/authSlice";
 
 const SignInScreen = ({navigation}) => {
+  const dispatch = useDispatch();
   const [data, setData] = useState({
     username: '',
     password: '',
@@ -71,10 +75,13 @@ const SignInScreen = ({navigation}) => {
     }
   }
 
-  const loginHandle = (userName, password) => {
-    Alert.alert('Invalid User!', 'Username or password is incorrect.', [
-      {text: 'Okay'}
-    ]);
+  const loginHandle = async (userName, password) => {
+    dispatch(login({userName: userName}));
+    const serializedState = JSON.stringify({userName: userName});
+    await AsyncStorage.setItem('user', serializedState);
+    // Alert.alert('Invalid User!', 'Username or password is incorrect.', [
+    //   {text: 'Okay'}
+    // ]);
   }
 
 
@@ -96,7 +103,7 @@ const SignInScreen = ({navigation}) => {
           style={styles.logo}
           resizeMode="stretch"
         />
-        <Text style={styles.text_header}>Xin chào!</Text>
+        <Text style={[styles.text_header, STYLES.CustomFont]}>Xin chào!</Text>
       </View>
       <Animatable.View 
         animation="fadeInUpBig"
@@ -104,13 +111,13 @@ const SignInScreen = ({navigation}) => {
             backgroundColor: COLORS.white
         }]}
       >
-        <Text style={[styles.text_footer]}>Tên đăng nhập</Text>
+        <Text style={[styles.text_footer, STYLES.CustomFont]}>Tên đăng nhập</Text>
         <View style={styles.action}>
           <Icon name="user-o" type='font-awesome' color={COLORS.strongBlue} size={20} />
           <TextInput 
             placeholder="Tên đăng nhập của bạn"
             placeholderTextColor="#666666"
-            style={[styles.textInput]}
+            style={[styles.textInput, STYLES.CustomFont]}
             autoCapitalize="none"
             onChangeText={(val) => textInputChange(val)}
             onEndEditing={(e)=>handleValidUser(e.nativeEvent.text)}
@@ -123,11 +130,11 @@ const SignInScreen = ({navigation}) => {
         </View>
         { data.isValidUser ? null : 
           <Animatable.View animation="fadeInLeft" duration={500}>
-            <Text style={styles.errorMsg}>Tên đăng nhập phải có ít nhất 4 ký tự.</Text>
+            <Text style={[styles.errorMsg, STYLES.CustomFont]}>Tên đăng nhập phải có ít nhất 4 ký tự.</Text>
           </Animatable.View>
         }
           
-        <Text style={[styles.text_footer, {
+        <Text style={[styles.text_footer, STYLES.CustomFont, {
           marginTop: 35
         }]}>Mật khẩu</Text>
         <View style={styles.action}>
@@ -136,7 +143,7 @@ const SignInScreen = ({navigation}) => {
             placeholder="Mật khẩu của bạn"
             placeholderTextColor="#666666"
             secureTextEntry={data.secureTextEntry ? true : false}
-            style={[styles.textInput]}
+            style={[styles.textInput, STYLES.CustomFont]}
             autoCapitalize="none"
             onChangeText={(val) => handlePasswordChange(val)}
           />
@@ -152,12 +159,12 @@ const SignInScreen = ({navigation}) => {
         </View>
         { data.isValidPassword ? null : 
           <Animatable.View animation="fadeInLeft" duration={500}>
-            <Text style={styles.errorMsg}>Mật khẩu phải có ít nhất 8 ký tự.</Text>
+            <Text style={[styles.errorMsg, STYLES.CustomFont]}>Mật khẩu phải có ít nhất 8 ký tự.</Text>
           </Animatable.View>
         }
           
         <TouchableOpacity>
-          <Text style={{color: '#009387', marginTop:15}}>Quên mật khẩu?</Text>
+          <Text style={[STYLES.CustomFont, {color: '#009387', marginTop:15}]}>Quên mật khẩu?</Text>
         </TouchableOpacity>
         <View style={styles.button}>
           <TouchableOpacity
@@ -168,7 +175,7 @@ const SignInScreen = ({navigation}) => {
             colors={['#08d4c4', '#01ab9d']}
             style={styles.signIn}
           >
-            <Text style={[styles.textSign, {
+            <Text style={[styles.textSign, STYLES.CustomFont, {
               color: COLORS.white
             }]}>Đăng nhập</Text>
           </LinearGradient>
@@ -176,13 +183,13 @@ const SignInScreen = ({navigation}) => {
 
           <TouchableOpacity
             onPress={() => navigation.navigate('SignUpScreen')}
-            style={[styles.signIn, {
+            style={[styles.signIn, STYLES.CustomFont, {
               borderColor: '#009387',
               borderWidth: 1,
               marginTop: 15
             }]}
           >
-            <Text style={[styles.textSign, {
+            <Text style={[styles.textSign, STYLES.CustomFont, {
                 color: '#009387'
             }]}>Đăng ký</Text>
           </TouchableOpacity>

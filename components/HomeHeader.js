@@ -1,12 +1,16 @@
 import React from "react";
 import { View, Text, Image, TextInput } from "react-native";
+import { useSelector } from 'react-redux';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Icon } from '@rneui/themed';
 import tw from 'twrnc';
 
 import { COLORS, FONTS, SIZES, assets } from "../constants";
+import { selectUser } from '../redux/slices/authSlice';
 
 const HomeHeader = ({ onSearch }) => {
+  const user = useSelector(selectUser);
+
   return (
     <View
       style={{
@@ -67,7 +71,7 @@ const HomeHeader = ({ onSearch }) => {
             color: COLORS.white,
           }}
         >
-          Xin chào Victoria 👋
+          Xin chào {user.userName} 👋
         </Text>
 
         <Text
